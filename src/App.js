@@ -38,10 +38,9 @@ function App() {
 
     setUsers(mockUsers);
     setInternships(mockInternships);
-    setFilteredInternships(mockInternships);
   }, []);
 
-  // Filter internships when user changes
+  // Filter internships when user changes or internships update
   useEffect(() => {
     if (currentUser) {
       setFilteredInternships(
@@ -50,27 +49,28 @@ function App() {
     } else {
       setFilteredInternships(internships);
     }
-  }, [currentUser, internships]);
+  }, [internships, currentUser]);
 
   const handleSubmit = (internshipData) => {
     if (currentInternship) {
       // Update existing internship
-      const updated = internships.map((item) =>
-        item.id === currentInternship.id
-          ? {
-              ...internshipData,
-              id: currentInternship.id,
-              submittedBy: currentUser?.id || null,
-              submittedByName: currentUser?.name || "Unknown",
-            }
-          : item
+      setInternships((prevInternships) =>
+        prevInternships.map((item) =>
+          item.id === currentInternship.id
+            ? {
+                ...internshipData,
+                id: currentInternship.id,
+                submittedBy: currentUser?.id || null,
+                submittedByName: currentUser?.name || "Unknown",
+              }
+            : item
+        )
       );
-      setInternships(updated);
     } else {
       // Add new internship
       const newId = Math.max(...internships.map((i) => i.id), 0) + 1;
-      setInternships([
-        ...internships,
+      setInternships((prevInternships) => [
+        ...prevInternships,
         {
           ...internshipData,
           id: newId,
@@ -92,13 +92,16 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    setInternships(internships.filter((item) => item.id !== id));
+    setInternships((prevInternships) =>
+      prevInternships.filter((item) => item.id !== id)
+    );
   };
 
   const addUser = (user) => {
     const newUser = { ...user, id: Date.now() };
-    setUsers([...users, newUser]);
+    setUsers((prevUsers) => [...prevUsers, newUser]);
   };
+
   const sendNotification = (user, title, url) => {
     const message = `Hi ${user.name}, a new link was shared with you:\n${title}\n${url}`;
     const encodedMsg = encodeURIComponent(message);
@@ -117,7 +120,7 @@ function App() {
       sharedByName: currentUser?.name || "System",
     };
 
-    setLinks([...links, newLink]);
+    setLinks((prevLinks) => [...prevLinks, newLink]);
 
     // Send WhatsApp notifications
     selectedUsers.forEach((userId, index) => {

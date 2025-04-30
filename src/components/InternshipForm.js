@@ -34,11 +34,12 @@ export default function InternshipForm({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
     const payload = {
-      ...formData, // Make sure to send formData, not just 'data'
+      ...formData,
       id: Date.now(),
       userId: currentUser.id,
       userName: currentUser.name,
@@ -50,7 +51,16 @@ export default function InternshipForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ data: payload }),
       });
-      // Optionally, reset the form or do something after success
+
+      // Call onSubmit from the parent
+      onSubmit(payload);
+      setFormData({
+        company: "",
+        position: "",
+        status: "Applied",
+        date: new Date().toISOString().split("T")[0],
+        notes: "",
+      });
     } catch (error) {
       console.error("Error submitting form", error);
     }
@@ -58,6 +68,7 @@ export default function InternshipForm({
 
   return (
     <form onSubmit={handleSubmit}>
+      {/* Form fields as before */}
       <div className="form-group">
         <label>Submitted By</label>
         <select
@@ -76,7 +87,6 @@ export default function InternshipForm({
           ))}
         </select>
       </div>
-
       <div className="form-group">
         <label>Company</label>
         <input
@@ -134,7 +144,6 @@ export default function InternshipForm({
           rows="3"
         />
       </div>
-
       <div className="form-actions">
         <button type="submit" className="submit-btn">
           {initialData ? "Update" : "Save"}
