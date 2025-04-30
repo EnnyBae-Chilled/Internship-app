@@ -1,18 +1,14 @@
 import React from "react";
-// import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-// import reportWebVitals from "./reportWebVitals";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { createRoot } from "react-dom/client";
+
+// Create the root element for React to render
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(<App />);
 
-// Register service worker
-serviceWorkerRegistration.register();
-
-// Install prompt
+// Install prompt for PWA
 let deferredPrompt;
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
