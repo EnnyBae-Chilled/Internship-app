@@ -13,7 +13,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [filteredInternships, setFilteredInternships] = useState([]);
   const [showLinkPopup, setShowLinkPopup] = useState(false);
-  // const [links, setLinks] = useState([]);
+  const [links, setLinks] = useState([]);
 
   // Load mock data initially
   useEffect(() => {
@@ -120,7 +120,7 @@ function App() {
       sharedByName: currentUser?.name || "System",
     };
 
-    // setLinks((prevLinks) => [...prevLinks, newLink]);
+    setLinks((prevLinks) => [...prevLinks, newLink]);
 
     // Send WhatsApp notifications
     selectedUsers.forEach((userId, index) => {
@@ -172,6 +172,26 @@ function App() {
           onDelete={handleDelete}
         />
       </div>
+      {links.length > 0 && (
+        <div className="shared-links">
+          <h2>Shared Links</h2>
+          <ul>
+            {links.map((link) => (
+              <li key={link.id}>
+                <strong>{link.title}</strong> –{" "}
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.url}
+                </a>{" "}
+                <br />
+                <small>
+                  Shared by {link.sharedByName} on{" "}
+                  {new Date(link.timestamp).toLocaleString()}
+                </small>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {showLinkPopup && (
         <LinkSharePopup
