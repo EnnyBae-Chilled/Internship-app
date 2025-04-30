@@ -3,11 +3,9 @@ const CACHE_NAME = "internship-tracker-v1";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
-  "/static/js/bundle.js",
-  "/static/css/main.css",
-  "/icons/icon-192x192.png",
-  "/icons/icon-512x512.png",
-  "/manifest.json", // Add if you have a web manifest
+  "/index.js",
+  "/index.css",
+  "/App.js",
 ];
 
 // Install event - caching assets
