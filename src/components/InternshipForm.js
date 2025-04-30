@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function InternshipForm({
   onSubmit,
@@ -12,6 +12,7 @@ export default function InternshipForm({
     company: "",
     position: "",
     status: "Applied",
+    url: "",
     date: new Date().toISOString().split("T")[0],
     notes: "",
   });
@@ -24,6 +25,7 @@ export default function InternshipForm({
         company: "",
         position: "",
         status: "Applied",
+        url: "",
         date: new Date().toISOString().split("T")[0],
         notes: "",
       });
@@ -58,6 +60,7 @@ export default function InternshipForm({
         company: "",
         position: "",
         status: "Applied",
+        url: "",
         date: new Date().toISOString().split("T")[0],
         notes: "",
       });
@@ -68,7 +71,6 @@ export default function InternshipForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* Form fields as before */}
       <div className="form-group">
         <label>Submitted By</label>
         <select
@@ -123,7 +125,15 @@ export default function InternshipForm({
           <option value="Rejected">Rejected</option>
         </select>
       </div>
-
+      <div className="form-group">
+        <label>Url</label>
+        <textarea
+          name="url"
+          value={formData.url}
+          onChange={handleChange}
+          rows="1"
+        />
+      </div>
       <div className="form-group">
         <label>Date</label>
         <input

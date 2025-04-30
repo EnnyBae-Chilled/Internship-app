@@ -76,4 +76,4 @@ Pull requests are welcome! Feel free to open an issue first to discuss what you 
 
 ## 📄 License
 
-MIT © 2025 [Your Name]
+MIT © 2025 Joseph Oduyebo
