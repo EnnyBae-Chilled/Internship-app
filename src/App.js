@@ -13,7 +13,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [filteredInternships, setFilteredInternships] = useState([]);
   const [showLinkPopup, setShowLinkPopup] = useState(false);
-  const [links, setLinks] = useState([]);
+  // const [links, setLinks] = useState([]);
 
   // Load mock data initially
   useEffect(() => {
@@ -120,7 +120,7 @@ function App() {
       sharedByName: currentUser?.name || "System",
     };
 
-    setLinks((prevLinks) => [...prevLinks, newLink]);
+    // setLinks((prevLinks) => [...prevLinks, newLink]);
 
     // Send WhatsApp notifications
     selectedUsers.forEach((userId, index) => {
