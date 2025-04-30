@@ -1,0 +1,293 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-container {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+/* Lists */
+.user-list, .submission-list {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.user-list ul, .submission-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.user-list li:hover {
+  background: #f5f5f5;
+}
+
+.user-list li.active {
+  background: #e0f7fa;
+  font-weight: bold;
+}
+
+.submission-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.submission-list small {
+  display: block;
+  color: #666;
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+
+/* Popup styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.share-btn {
+  background: #2196F3;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  background: #0b7dda;
+}
+
+/* Make sure the form container has enough spacing */
+.form-container {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.checkbox-item input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 300px;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Form styles */
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* User list */
+.user-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.user-list li:hover {
+  background: #f5f5f5;
+}
+
+.user-list li.active {
+  background: #e0f7fa;
+  font-weight: bold;
+}
+/* Export Controls */
+.export-controls {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.export-controls select {
+  margin-right: 10px;
+  width: auto;
+}
+
+/* Submission History */
+.submission-history {
+  margin-top: 30px;
+}
+
+.submission {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.submission small {
+  color: #666;
+  margin-left: 10px;
+}
+/* Links Page */
+.links-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.links-list {
+  display: grid;
+  gap: 20px;
+}
+
+.link-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.link-card h3 {
+  margin-top: 0;
+  color: #2196F3;
+}
+
+.link-card a {
+  display: block;
+  margin: 10px 0;
+  color: #1565C0;
+  word-break: break-all;
+}
+
+.link-card .meta {
+  color: #666;
+  font-size: 0.9em;
+  margin: 10px 0 0;
+}
+
+/* Navigation */
+nav {
+  background: #333;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background: #555;
+}
