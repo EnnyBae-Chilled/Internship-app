@@ -34,6 +34,20 @@ export default function InternshipForm({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  const handleSubmit = async (data) => {
+    const payload = {
+      ...data,
+      id: Date.now(),
+      userId: currentUser.id,
+      userName: currentUser.name,
+    };
+
+    await fetch("https://sheetdb.io/api/v1/4cg4hwo0gd1ne", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data: payload }),
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
