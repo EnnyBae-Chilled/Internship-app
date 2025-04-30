@@ -34,19 +34,26 @@ export default function InternshipForm({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  const handleSubmit = async (data) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
     const payload = {
-      ...data,
+      ...formData, // Make sure to send formData, not just 'data'
       id: Date.now(),
       userId: currentUser.id,
       userName: currentUser.name,
     };
 
-    await fetch("https://sheetdb.io/api/v1/4cg4hwo0gd1ne", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data: payload }),
-    });
+    try {
+      await fetch("https://sheetdb.io/api/v1/4cg4hwo0gd1ne", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: payload }),
+      });
+      // Optionally, reset the form or do something after success
+    } catch (error) {
+      console.error("Error submitting form", error);
+    }
   };
 
   return (

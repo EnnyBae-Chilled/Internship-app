@@ -34,16 +34,6 @@ function App() {
         submittedBy: 1,
         submittedByName: "John Doe",
       },
-      {
-        id: 2,
-        company: "Design Co",
-        position: "UI Intern",
-        status: "Interview",
-        date: "2025-04-22",
-        notes: "Interview next week",
-        submittedBy: 2,
-        submittedByName: "Jane Smith",
-      },
     ];
 
     setUsers(mockUsers);
